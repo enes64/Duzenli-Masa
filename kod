@@ -1,0 +1,29 @@
+#include <Servo.h>
+
+int buttonState=0;
+
+int button=7;
+int led=13;
+Servo myservo;    
+void setup() {
+  myservo.attach(9);
+  pinMode(led,OUTPUT);
+  pinMode(button,INPUT); 
+}
+
+void loop() {
+ buttonState = digitalRead(button);
+  if (buttonState == HIGH)
+    {
+      digitalWrite(led, HIGH);
+      myservo.write(90);
+      delay(15);
+    }
+    else
+    {
+    digitalWrite(led, LOW);
+    myservo.write(0);
+    delay(15);  
+      }
+                  
+  }
